@@ -1,0 +1,151 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #ffffff;
+  --fg: #000000;
+  --muted: #575757;
+  --line: #e0e0e0;
+  --soft: #f2f2f2;
+  --soft-deep: #e3e3e3;
+  --card: #f7f7f7;
+  --accent: #02d4f5;
+  --accent-soft: #cff9ff;
+  --shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.18);
+  --glow: 0 12px 28px -6px rgba(2, 212, 245, 0.55);
+}
+
+.dark {
+  --bg: #0b0b0b;
+  --fg: #f5f5f5;
+  --muted: #a3a3a3;
+  --line: #2a2a2a;
+  --soft: #161616;
+  --soft-deep: #1a1a1a;
+  --card: #141414;
+  --accent: #02d4f5;
+  --accent-soft: #11343a;
+  --shadow: 0 10px 30px -8px rgba(0, 0, 0, 0.6);
+  --glow: 0 12px 28px -6px rgba(2, 212, 245, 0.4);
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-soft: var(--soft);
+  --color-soft-deep: var(--soft-deep);
+  --color-card: var(--card);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --font-sans: var(--font-host);
+  --font-display: var(--font-shoulders);
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-host), sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-shoulders), sans-serif;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 32s linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
+@keyframes nav-dot-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-dot-ring {
+  animation: nav-dot-spin 14s linear infinite;
+  transform-origin: center;
+}
+
+@keyframes projects-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.projects-carousel-track {
+  animation: projects-marquee 56s linear infinite;
+  will-change: transform;
+}
+
+.projects-carousel:hover .projects-carousel-track {
+  animation-play-state: paused;
+}
+
+::selection {
+  background: var(--accent);
+  color: #041418;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .animate-marquee,
+  .animate-marquee-reverse,
+  .projects-carousel-track,
+  .nav-dot-ring {
+    animation: none;
+  }
+
+  .projects-carousel {
+    overflow-x: auto;
+  }
+
+  .animate-marquee:hover,
+  .animate-marquee-reverse:hover {
+    animation-play-state: running;
+  }
+}
