@@ -19,11 +19,11 @@ const shoulders = Big_Shoulders({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dean — Graphics Designer Portfolio",
+    default: "Haris — Graphics Designer Portfolio",
     template: "%s",
   },
   description:
-    "From Miami, Dean designs fast, user-friendly websites for founders and freelancers looking to attract dream clients.",
+    "From Miami, Haris designs fast, user-friendly websites for founders and freelancers looking to attract dream clients.",
   icons: { icon: "/images/avatar-bust.png" },
 };
 

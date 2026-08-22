@@ -22,7 +22,7 @@ export function Contact() {
             <Float>
               <Image
                 src="/images/avatar-desk.png"
-                alt="Dean at his desk"
+                alt="Haris at his desk"
                 width={280}
                 height={280}
                 className="h-auto w-48"

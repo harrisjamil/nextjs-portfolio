@@ -19,7 +19,7 @@ export function Testimonials() {
             <Float>
               <Image
                 src="/images/avatar-point.png"
-                alt="Dean pointing to client reviews"
+                alt="Haris pointing to client reviews"
                 width={420}
                 height={420}
                 className="h-auto w-full max-w-[360px]"

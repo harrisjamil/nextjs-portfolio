@@ -4,8 +4,8 @@ import { Button, Frame, Marquee, SectionLabel } from "@/components/ui";
 import { projectValues, projects } from "@/lib/data";
 
 export const metadata = {
-  title: "Projects — Dean",
-  description: "Take a look at Dean's portfolio of websites and brand work.",
+  title: "Projects — Haris",
+  description: "Take a look at Haris's portfolio of websites and brand work.",
 };
 
 export default function ProjectsPage() {

@@ -1,5 +1,5 @@
 export const site = {
-  name: "Dean",
+  name: "Haris",
   role: "Graphics Designer",
   city: "Miami",
   email: "contact@ace.com",
@@ -220,7 +220,7 @@ export const testimonials = [
   },
   {
     quote:
-      "Dean translated a messy brief into a brand system we still use two years later. Clear, calm, and seriously talented.",
+      "Haris translated a messy brief into a brand system we still use two years later. Clear, calm, and seriously talented.",
     name: "Marcus Chen",
     role: "CEO of Northline",
     image: "/images/client-marcus.png",

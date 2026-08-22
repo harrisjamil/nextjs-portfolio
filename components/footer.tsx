@@ -30,14 +30,14 @@ export function Footer() {
                 />
               ))}
             </div>
-            <p>© {new Date().getFullYear()} Dean. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} Haris. All rights reserved.</p>
           </div>
         </div>
         <div className="justify-self-start md:justify-self-end">
           <LoopVideo
             src="/videos/footer-avatar.mp4"
             poster="/images/avatar-bust.png"
-            label="Dean waving"
+            label="Haris waving"
             className="h-40 w-40 rounded-[28px] object-cover md:h-48 md:w-48"
           />
         </div>

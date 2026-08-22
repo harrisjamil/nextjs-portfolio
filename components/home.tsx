@@ -27,7 +27,7 @@ export function Hero() {
         <Stagger>
           <RevealItem>
             <span className="inline-flex rounded-full border border-line bg-bg px-4 py-1.5 text-sm font-medium">
-              Hi, I&apos;m Dean
+              Hi, I&apos;m Haris
             </span>
           </RevealItem>
           <h1 className="font-display mt-6 flex flex-col items-center justify-center gap-2 text-[clamp(3.2rem,12vw,9.5rem)] font-semibold uppercase leading-[0.82] tracking-[-0.04em] md:flex-row md:gap-4">

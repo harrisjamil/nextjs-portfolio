@@ -3,9 +3,9 @@ import { Button, Frame, Marquee, SectionLabel } from "@/components/ui";
 import { serviceTags, services } from "@/lib/data";
 
 export const metadata = {
-  title: "Services — Dean",
+  title: "Services — Haris",
   description:
-    "Web design, branding, product design, and graphics from Dean.",
+    "Web design, branding, product design, and graphics from Haris.",
 };
 
 export default function ServicesPage() {
