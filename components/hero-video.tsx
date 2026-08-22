@@ -7,7 +7,7 @@ export function HeroVideo() {
     <LoopVideo
       src="/videos/hero-avatar.mp4"
       poster="/images/avatar-bust.png"
-      label="Dean avatar"
+      label="Haris avatar"
       className="h-[clamp(5.5rem,14vw,11rem)] w-[clamp(5.5rem,14vw,11rem)] rounded-[28px] object-cover"
     />
   );
@@ -18,7 +18,7 @@ export function AboutVideo() {
     <LoopVideo
       src="/videos/about-avatar.mp4"
       poster="/images/avatar-about.png"
-      label="Dean sitting with a laptop"
+      label="Haris sitting with a laptop"
       className="aspect-square h-auto w-full rounded-[30px] object-cover"
     />
   );

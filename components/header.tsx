@@ -154,7 +154,7 @@ export function Header() {
               <span className="relative overflow-hidden rounded-full bg-accent">
                 <Image
                   src="/images/avatar-bust.png"
-                  alt="Dean"
+                  alt="Haris"
                   width={52}
                   height={52}
                   className="relative h-[52px] w-[52px] rounded-full object-cover object-top"

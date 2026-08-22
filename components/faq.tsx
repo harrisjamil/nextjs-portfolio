@@ -18,7 +18,7 @@ export function FAQ() {
             <Float>
               <Image
                 src="/images/avatar-faq.png"
-                alt="Dean with a question mark"
+                alt="Haris with a question mark"
                 width={380}
                 height={380}
                 className="h-auto w-full max-w-[320px]"
