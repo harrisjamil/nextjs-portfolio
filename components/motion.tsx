@@ -186,6 +186,75 @@ export function SplitHover({
   );
 }
 
+const NAV_STACKED_COPIES = 8;
+const NAV_STACKED_LINE = 19.2;
+
+export function NavStackedText({
+  text,
+  className = "",
+  accent = false,
+  showDot = false,
+}: {
+  text: string;
+  className?: string;
+  accent?: boolean;
+  showDot?: boolean;
+}) {
+  const reduce = useReducedMotion();
+
+  if (reduce) {
+    return <span className={className}>{text}</span>;
+  }
+
+  return (
+    <motion.span
+      className={`relative inline-flex flex-col items-center ${className}`}
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+    >
+      {showDot && (
+        <span className="mb-1 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+      )}
+      <span className="inline-flex items-center gap-[0.05em] font-display text-base font-medium tracking-tight">
+        {Array.from(text).map((char, index) => (
+          <span key={`${char}-${index}`} className="relative inline-flex flex-col items-center">
+            <span
+              className="relative block overflow-hidden"
+              style={{ height: NAV_STACKED_LINE }}
+            >
+              <motion.span
+                className="flex flex-col items-center"
+                variants={{
+                  rest: { y: 0 },
+                  hover: { y: -(NAV_STACKED_LINE * (NAV_STACKED_COPIES - 1)) },
+                }}
+                transition={{
+                  duration: 0.85,
+                  delay: index * 0.03,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+              >
+                {Array.from({ length: NAV_STACKED_COPIES }, (_, copy) => (
+                  <span
+                    key={copy}
+                    className={`flex items-center justify-center ${
+                      accent ? "text-accent" : "text-current"
+                    }`}
+                    style={{ height: NAV_STACKED_LINE }}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </motion.span>
+            </span>
+          </span>
+        ))}
+      </span>
+    </motion.span>
+  );
+}
+
 export function SplitLink({
   href,
   text,

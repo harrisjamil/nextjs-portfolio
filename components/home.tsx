@@ -22,40 +22,40 @@ import {
 
 export function Hero() {
   return (
-    <section className="mx-auto max-w-[1280px] px-4 py-10 md:px-6 md:py-16">
-      <Frame className="px-4 py-12 text-center md:px-10 md:py-16">
-        <Stagger>
-          <RevealItem>
-            <span className="inline-flex rounded-full border border-line bg-bg px-4 py-1.5 text-sm font-medium">
+    <section className="mt-4 px-4 pt-6 pb-8 md:mt-6 md:px-6 md:pt-8 md:pb-10">
+      <div className="relative mx-auto w-full max-w-[1280px]">
+        <Frame className="relative w-full border border-line bg-bg px-6 pb-8 pt-10 text-center md:px-10 md:pb-10 md:pt-12">
+          <Reveal className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2">
+            <span className="inline-flex rounded-full border-[0.5px] border-line bg-bg px-5 py-1.5 text-sm font-medium">
               Hi, I&apos;m Dean
             </span>
-          </RevealItem>
-          <h1 className="font-display mt-6 flex flex-col items-center justify-center gap-2 text-[clamp(3.2rem,12vw,9.5rem)] font-semibold uppercase leading-[0.82] tracking-[-0.04em] md:flex-row md:gap-4">
+          </Reveal>
+          <Stagger>
+            <h1 className="font-display mt-2 flex flex-col items-center justify-center gap-2 text-[clamp(2.8rem,11vw,8.5rem)] font-semibold uppercase leading-[0.82] tracking-[-0.04em] md:mt-4 md:flex-row md:gap-4">
+              <RevealItem>
+                <span>Graphics</span>
+              </RevealItem>
+              <RevealItem>
+                <HeroVideo />
+              </RevealItem>
+              <RevealItem>
+                <span>Designer</span>
+              </RevealItem>
+            </h1>
             <RevealItem>
-              <span>Graphics</span>
+              <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted md:text-lg">
+                From Miami, I design fast, user-friendly websites for founders and
+                freelancers looking to attract dream clients.
+              </p>
             </RevealItem>
-            <RevealItem>
-              <HeroVideo />
-            </RevealItem>
-            <RevealItem>
-              <span>Designer</span>
-            </RevealItem>
-          </h1>
-          <RevealItem>
-            <p className="mx-auto mt-8 max-w-xl text-base leading-7 text-muted md:text-lg">
-              From Miami, I design fast, user-friendly websites for founders and
-              freelancers looking to attract dream clients.
-            </p>
-          </RevealItem>
-          <RevealItem>
-            <div className="mt-8 flex justify-center">
-              <Button href="#contact" variant="cyan" className="px-7 py-3.5 text-base">
-                i Want to Chat
-              </Button>
-            </div>
-          </RevealItem>
-        </Stagger>
-      </Frame>
+          </Stagger>
+        </Frame>
+      </div>
+      <Reveal className="mx-auto mt-6 flex max-w-[1280px] justify-center md:mt-8">
+        <Button href="#contact" variant="cyan" className="px-6 py-2.5 text-sm">
+          i Want to Chat
+        </Button>
+      </Reveal>
     </section>
   );
 }

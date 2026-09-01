@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { useEffect, useId, useState } from "react";
 import { motion } from "motion/react";
-import { SplitLink } from "./motion";
+import { NavStackedText } from "./motion";
 import { Button } from "./ui";
 
 function Dribbble() {
@@ -92,6 +92,9 @@ const socials = [
   { href: "https://facebook.com", label: "Facebook", bg: "bg-[#1877F2]", icon: <Facebook /> },
 ];
 
+const navLinkTone = (active: boolean) =>
+  active ? "text-fg" : "text-[#616161] hover:text-fg";
+
 export function Header() {
   const pathname = usePathname();
   const { theme, setTheme } = useTheme();
@@ -105,49 +108,57 @@ export function Header() {
   const aboutActive = pathname === "/";
 
   return (
-    <header className="sticky top-0 z-50 bg-bg/90 backdrop-blur-md">
-      <div className="relative mx-auto grid h-[104px] max-w-[1280px] grid-cols-[1fr_auto_1fr] items-center gap-3 px-4 md:px-6">
-        {/* Bottom border with a gap under the home avatar */}
-        <span
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 left-0 right-[calc(50%+42px)] h-px bg-line"
-        />
-        <span
-          aria-hidden
-          className="pointer-events-none absolute bottom-0 left-[calc(50%+42px)] right-0 h-px bg-line"
-        />
+    <header className="sticky top-0 z-50 bg-bg">
+      <div className="px-4 md:px-6">
+        <div className="relative mx-auto flex min-h-[115px] max-w-[1280px]">
+          <span aria-hidden className="site-rail site-rail--left site-rail--bridge" />
+          <span aria-hidden className="site-rail site-rail--right site-rail--bridge" />
+          {/* Bottom line with wider home gap + faded outer ends */}
+          <span aria-hidden className="nav-rule nav-rule--left" />
+          <span aria-hidden className="nav-rule nav-rule--right" />
 
-        <div className="flex items-center gap-3 justify-self-start">
-          <Button href="/#contact" className="hidden sm:inline-flex">
-            i Want to Chat
-          </Button>
-          <div className="hidden items-center gap-2 lg:flex">
-            {socials.map((s) => (
-              <motion.a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={s.label}
-                whileHover={{ scale: 1.12, y: -2 }}
-                whileTap={{ scale: 0.94 }}
-                className={`grid h-8 w-8 place-items-center rounded-full ${s.bg}`}
-              >
-                {s.icon}
-              </motion.a>
-            ))}
+          {/* Left column — button/socials + Projects */}
+          <div className="relative flex min-h-[115px] flex-1 flex-col">
+            <div className="flex h-20 items-center justify-between gap-3 px-4 md:px-5">
+              <div className="flex min-w-0 items-center gap-2 md:gap-3">
+                <button
+                  type="button"
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-line md:hidden"
+                  onClick={() => setOpen((v) => !v)}
+                  aria-label="Menu"
+                >
+                  ☰
+                </button>
+                <Button href="/#contact" className="hidden shrink-0 md:inline-flex">
+                  i Want to Chat
+                </Button>
+                <div className="hidden items-center gap-2 md:flex">
+                  {socials.map((s) => (
+                    <motion.a
+                      key={s.label}
+                      href={s.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={s.label}
+                      whileHover={{ scale: 1.12, y: -2 }}
+                      whileTap={{ scale: 0.94 }}
+                      className={`grid h-8 w-8 shrink-0 place-items-center rounded-full ${s.bg}`}
+                    >
+                      {s.icon}
+                    </motion.a>
+                  ))}
+                </div>
+              </div>
+              <Link href="/projects" className="inline-flex shrink-0">
+                <NavStackedText text="Projects" className={navLinkTone(projectActive)} />
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <nav className="relative z-10 flex items-center justify-center gap-5 justify-self-center text-sm font-medium text-muted">
-          <SplitLink
-            href="/projects"
-            text="Projects"
-            className={projectActive ? "text-fg" : "hover:text-fg"}
-          />
+          {/* Center column — avatar + Home */}
           <Link
             href="/"
-            className="relative flex h-[84px] w-[84px] flex-col items-center justify-start pt-[13px]"
+            className="relative z-10 flex w-[76px] shrink-0 flex-col items-center bg-bg pt-[13px]"
           >
             <span className="relative grid h-[52px] w-[52px] place-items-center">
               <DottedRing />
@@ -161,45 +172,42 @@ export function Header() {
                 />
               </span>
             </span>
-            <span className="absolute bottom-1 left-1/2 -translate-x-1/2 text-center text-[11px] font-semibold text-accent">
-              {aboutActive ? "Home" : projectActive ? "Work" : "Offer"}
-              <span className="mx-auto mt-0.5 block h-1.5 w-1.5 rounded-full bg-accent" />
+            <span className="absolute bottom-[10px] left-1/2 -translate-x-1/2">
+              <NavStackedText
+                text="Home"
+                accent={aboutActive}
+                showDot={aboutActive}
+              />
             </span>
           </Link>
-          <SplitLink
-            href="/services"
-            text="Services"
-            className={serviceActive ? "text-fg" : "hover:text-fg"}
-          />
-        </nav>
 
-        <div className="flex items-center gap-2 justify-self-end">
-          <button
-            type="button"
-            aria-label="Toggle theme"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="relative h-10 w-[72px] rounded-full border border-line bg-soft p-1"
-          >
-            <span
-              className={`grid h-8 w-8 place-items-center rounded-full bg-bg text-sm shadow-sm transition ${
-                mounted && theme === "dark" ? "translate-x-8" : "translate-x-0"
-              }`}
-            >
-              {mounted && theme === "dark" ? "☾" : "☀"}
-            </span>
-          </button>
-          <button
-            type="button"
-            className="grid h-10 w-10 place-items-center rounded-full border border-line md:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
-          >
-            ☰
-          </button>
+          {/* Right column — Services + theme toggle */}
+          <div className="relative flex min-h-[115px] flex-1 flex-col">
+            <div className="flex h-20 items-center justify-between gap-3 px-4 md:px-5">
+              <Link href="/services" className="inline-flex shrink-0">
+                <NavStackedText text="Services" className={navLinkTone(serviceActive)} />
+              </Link>
+              <button
+                type="button"
+                aria-label="Toggle theme"
+                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                className="relative h-[30px] w-[54px] shrink-0 rounded-full border border-line bg-soft p-0.5"
+              >
+                <span
+                  className={`grid h-[22px] w-[22px] place-items-center rounded-full bg-bg text-xs shadow-sm transition ${
+                    mounted && theme === "dark" ? "translate-x-6" : "translate-x-0"
+                  }`}
+                >
+                  {mounted && theme === "dark" ? "☾" : "☀"}
+                </span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
+
       {open && (
-        <div className="flex flex-col gap-3 border-t border-line px-4 py-4 md:hidden">
+        <div className="mx-4 flex flex-col gap-3 border-b border-line px-4 py-4 md:hidden">
           <Button href="/#contact">i Want to Chat</Button>
           <Link href="/projects" onClick={() => setOpen(false)}>
             Projects

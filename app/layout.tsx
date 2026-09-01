@@ -15,6 +15,7 @@ const shoulders = Big_Shoulders({
   variable: "--font-shoulders",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
@@ -34,7 +35,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${host.variable} ${shoulders.variable} h-full antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full bg-bg font-sans text-fg">
+      <body className="min-h-full bg-bg font-sans text-fg" suppressHydrationWarning>
         <Providers>
           <Header />
           <main>{children}</main>

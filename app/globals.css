@@ -4,7 +4,7 @@
   --bg: #ffffff;
   --fg: #000000;
   --muted: #575757;
-  --line: #e0e0e0;
+  --line: rgba(224, 224, 224, 0.63);
   --soft: #f2f2f2;
   --soft-deep: #e3e3e3;
   --card: #f7f7f7;
@@ -18,7 +18,7 @@
   --bg: #0b0b0b;
   --fg: #f5f5f5;
   --muted: #a3a3a3;
-  --line: #2a2a2a;
+  --line: rgba(255, 255, 255, 0.14);
   --soft: #161616;
   --soft-deep: #1a1a1a;
   --card: #141414;
@@ -103,6 +103,78 @@ body {
 .nav-dot-ring {
   animation: nav-dot-spin 14s linear infinite;
   transform-origin: center;
+}
+
+.nav-rule {
+  pointer-events: none;
+  position: absolute;
+  top: 5rem;
+  height: 1px;
+  background: var(--line);
+}
+
+.line-rule {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--line);
+}
+
+.line-rule--top {
+  top: 0;
+}
+
+.line-rule--bottom {
+  bottom: 0;
+}
+
+.site-rail {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: var(--line);
+}
+
+.nav-rule--left {
+  left: 0;
+  right: calc(50% + 3.25rem);
+}
+
+.nav-rule--right {
+  left: calc(50% + 3.25rem);
+  right: 0;
+}
+
+.site-rail--left {
+  left: 0;
+}
+
+.site-rail--right {
+  right: 0;
+}
+
+.site-rail--bridge {
+  bottom: -2.5rem;
+}
+
+@media (min-width: 768px) {
+  .site-rail--bridge {
+    bottom: -3.5rem;
+  }
+
+  .nav-rule--left {
+    left: 0;
+    right: calc(50% + 3.5rem);
+  }
+
+  .nav-rule--right {
+    left: calc(50% + 3.5rem);
+    right: 0;
+  }
 }
 
 @keyframes projects-marquee {
