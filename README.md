@@ -2,7 +2,7 @@
 
 A modern, open-source portfolio template built with Next.js. Clean layouts, smooth motion, and a production-ready structure anyone can clone and customize.
 
-**Public repository:** [github.com/harrisjamil/haris-portfolio](https://github.com/harrisjamil/haris-portfolio)
+**Public repository:** [github.com/harrisjamil/nextjs-portfolio](https://github.com/harrisjamil/nextjs-portfolio)
 
 ## Features
 
@@ -32,8 +32,8 @@ A modern, open-source portfolio template built with Next.js. Clean layouts, smoo
 ### Install
 
 ```bash
-git clone https://github.com/harrisjamil/haris-portfolio.git
-cd haris-portfolio
+git clone https://github.com/harrisjamil/nextjs-portfolio.git
+cd nextjs-portfolio
 npm install
 ```
 
