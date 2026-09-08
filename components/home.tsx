@@ -27,25 +27,25 @@ export function Hero() {
         <Frame className="relative w-full border border-line bg-bg px-6 pb-8 pt-10 text-center md:px-10 md:pb-10 md:pt-12">
           <Reveal className="absolute left-1/2 top-0 z-10 -translate-x-1/2 -translate-y-1/2">
             <span className="inline-flex rounded-full border-[0.5px] border-line bg-bg px-5 py-1.5 text-sm font-medium">
-              Hi, I&apos;m Dean
+              Hi, I&apos;m Harris
             </span>
           </Reveal>
           <Stagger>
             <h1 className="font-display mt-2 flex flex-col items-center justify-center gap-2 text-[clamp(2.8rem,11vw,8.5rem)] font-semibold uppercase leading-[0.82] tracking-[-0.04em] md:mt-4 md:flex-row md:gap-4">
               <RevealItem>
-                <span>Graphics</span>
+                <span>Software</span>
               </RevealItem>
               <RevealItem>
                 <HeroVideo />
               </RevealItem>
               <RevealItem>
-                <span>Designer</span>
+                <span>Developer</span>
               </RevealItem>
             </h1>
             <RevealItem>
               <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-muted md:text-lg">
-                From Miami, I design fast, user-friendly websites for founders and
-                freelancers looking to attract dream clients.
+                I build modern software, AI-powered tools, and secure systems for
+                startups and teams that need reliable engineering.
               </p>
             </RevealItem>
           </Stagger>

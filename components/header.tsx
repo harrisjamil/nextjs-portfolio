@@ -164,11 +164,11 @@ export function Header() {
               <DottedRing />
               <span className="relative overflow-hidden rounded-full bg-accent">
                 <Image
-                  src="/images/avatar-bust.png"
-                  alt="Dean"
+                  src="/images/nav-avatar.png"
+                  alt="Harris"
                   width={52}
                   height={52}
-                  className="relative h-[52px] w-[52px] rounded-full object-cover object-top"
+                  className="relative h-[52px] w-[52px] rounded-full object-cover"
                 />
               </span>
             </span>

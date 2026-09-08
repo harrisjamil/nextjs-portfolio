@@ -20,12 +20,12 @@ const shoulders = Big_Shoulders({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dean — Graphics Designer Portfolio",
+    default: "Harris — Software Developer Portfolio",
     template: "%s",
   },
   description:
-    "From Miami, Dean designs fast, user-friendly websites for founders and freelancers looking to attract dream clients.",
-  icons: { icon: "/images/avatar-bust.png" },
+    "Harris builds modern software, AI-powered tools, and secure systems for startups and teams that need reliable engineering.",
+  icons: { icon: "/images/nav-avatar.png" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

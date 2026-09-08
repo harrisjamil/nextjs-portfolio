@@ -1,11 +1,11 @@
 export const site = {
-  name: "Dean",
-  role: "Graphics Designer",
-  city: "Miami",
+  name: "Harris",
+  role: "Software Developer",
+  city: "Remote",
   email: "contact@ace.com",
   phone: "+1 (555) 123-4567",
   tagline:
-    "From Miami, I design fast, user-friendly websites for founders and freelancers looking to attract dream clients.",
+    "I build modern software, AI-powered tools, and secure systems for startups and teams that need reliable engineering.",
 };
 
 export const socials = [

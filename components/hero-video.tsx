@@ -1,14 +1,17 @@
 "use client";
 
+import Image from "next/image";
 import { LoopVideo } from "@/components/loop-video";
 
 export function HeroVideo() {
   return (
-    <LoopVideo
-      src="/videos/hero-avatar.mp4"
-      poster="/images/avatar-bust.png"
-      label="Dean avatar"
-      className="h-[clamp(4.5rem,12vw,9rem)] w-[clamp(6rem,16vw,12rem)] rounded-[28px] object-cover"
+    <Image
+      src="/images/hero-avatar.jpg"
+      alt="Harris avatar"
+      width={480}
+      height={480}
+      priority
+      className="h-[clamp(4.5rem,12vw,9rem)] w-[clamp(4.5rem,12vw,9rem)] shrink-0 rounded-[28px] object-cover object-top"
     />
   );
 }
